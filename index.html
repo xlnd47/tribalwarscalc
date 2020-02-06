@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tribal Wars Scavange Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Tribal Wars Scavanger Calculator</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li id=navhome class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li id=navabout class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="jumbotron" id="home">
+        <!-- <h1 class="display-4">Enter troops and time to calculate!</h1> -->
+        <!-- <p class="lead">Please enter the troops you have available in your base and the time you would like to fill with them</p> -->
+        <!-- <hr class="my-4"> -->
+        <form>
+            <div class="form-group">
+                <label for="time">Tijd</label>
+                <br>
+                <label for="spear">Speervechter</label>
+                <input type="number" class="form-control" id="spear" placeholder="Spearmen">
+                <label for="sword">Zwaardvechter</label>
+                <input type="number" class="form-control" id="sword" placeholder="Swordsmen">
+                <label for="axe">Bijlman</label>
+                <input type="number" class="form-control" id="axe" placeholder="Axemen">
+                <label for="archer">Boogschutter</label>
+                <input type="number" class="form-control" id="archer" placeholder="Archers">
+            </div>
+            <div class="form-group">
+                <label for="time">Time</label>
+                <input type="number" class="form-control" id="time" aria-describedby="timeHelp" placeholder="Time">
+                <small id="timeHelp" class="form-text text-muted">Enter the time you would like your troops to be gone, in hours</small>
+            </div>
+            <button type="submit" id="calculate" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="results" class="table-responsive">
+            <table class="table" style="margin-top: 2rem;">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Adventure</th>
+                    <th scope="col">Spearman</th>
+                    <th scope="col">Swordsmen</th>
+                    <th scope="col">Axemen</th>
+                    <th scope="col">Archers</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="jumbotron" id="about" style="display:none;">
+        <h1 class="display-4">Tribal Wars Scavange Calculator!</h1>
+        <p class="lead">This calculator was developed by &copy; Jorn Schampheleer</p>
+        <hr class="my-4">
+        <p>Based on the script of Warre in the fora.</p>
+    </div>
+</div>
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+
+</script>
+
+<script type="text/javascript">
+
+    let scavangeInfo = JSON.parse("{\n" +
+        "  \"1\": {\n" +
+        "    \"id\": 1,\n" +
+        "    \"name\": \"Flegmatische  Fielt\",\n" +
+        "    \"loot_factor\": 0.1,\n" +
+        "    \"unlock_cost\": {\n" +
+        "      \"wood\": 25,\n" +
+        "      \"stone\": 30,\n" +
+        "      \"iron\": 25\n" +
+        "    },\n" +
+        "    \"unlock_duration_seconds\": 30,\n" +
+        "    \"duration_exponent\": 0.45,\n" +
+        "    \"duration_initial_seconds\": 1800,\n" +
+        "    \"duration_factor\": 1,\n" +
+        "    \"premium_cost_exponent\": 0.44,\n" +
+        "    \"prerequisite_option_ids\": [],\n" +
+        "    \"premium_boost\": {\n" +
+        "      \"feature\": \"ScavengingSquadLoot\",\n" +
+        "      \"enabled\": true,\n" +
+        "      \"loot_factor\": 1.2,\n" +
+        "      \"cost_exponent\": 0.44\n" +
+        "    }\n" +
+        "  },\n" +
+        "  \"2\": {\n" +
+        "    \"id\": 2,\n" +
+        "    \"name\": \"Bescheiden Bandieten\",\n" +
+        "    \"loot_factor\": 0.25,\n" +
+        "    \"unlock_cost\": {\n" +
+        "      \"wood\": 250,\n" +
+        "      \"stone\": 300,\n" +
+        "      \"iron\": 250\n" +
+        "    },\n" +
+        "    \"unlock_duration_seconds\": 3600,\n" +
+        "    \"duration_exponent\": 0.45,\n" +
+        "    \"duration_initial_seconds\": 1800,\n" +
+        "    \"duration_factor\": 1,\n" +
+        "    \"premium_cost_exponent\": 0.44,\n" +
+        "    \"prerequisite_option_ids\": [\n" +
+        "      1\n" +
+        "    ],\n" +
+        "    \"premium_boost\": {\n" +
+        "      \"feature\": \"ScavengingSquadLoot\",\n" +
+        "      \"enabled\": true,\n" +
+        "      \"loot_factor\": 1.2,\n" +
+        "      \"cost_exponent\": 0.44\n" +
+        "    }\n" +
+        "  },\n" +
+        "  \"3\": {\n" +
+        "    \"id\": 3,\n" +
+        "    \"name\": \"Slimme Speurders\",\n" +
+        "    \"loot_factor\": 0.5,\n" +
+        "    \"unlock_cost\": {\n" +
+        "      \"wood\": 1000,\n" +
+        "      \"stone\": 1200,\n" +
+        "      \"iron\": 1000\n" +
+        "    },\n" +
+        "    \"unlock_duration_seconds\": 10800,\n" +
+        "    \"duration_exponent\": 0.45,\n" +
+        "    \"duration_initial_seconds\": 1800,\n" +
+        "    \"duration_factor\": 1,\n" +
+        "    \"premium_cost_exponent\": 0.44,\n" +
+        "    \"prerequisite_option_ids\": [\n" +
+        "      2\n" +
+        "    ],\n" +
+        "    \"premium_boost\": {\n" +
+        "      \"feature\": \"ScavengingSquadLoot\",\n" +
+        "      \"enabled\": true,\n" +
+        "      \"loot_factor\": 1.2,\n" +
+        "      \"cost_exponent\": 0.44\n" +
+        "    }\n" +
+        "  },\n" +
+        "  \"4\": {\n" +
+        "    \"id\": 4,\n" +
+        "    \"name\": \"Reuze Rovers\",\n" +
+        "    \"loot_factor\": 0.75,\n" +
+        "    \"unlock_cost\": {\n" +
+        "      \"wood\": 10000,\n" +
+        "      \"stone\": 12000,\n" +
+        "      \"iron\": 10000\n" +
+        "    },\n" +
+        "    \"unlock_duration_seconds\": 21600,\n" +
+        "    \"duration_exponent\": 0.45,\n" +
+        "    \"duration_initial_seconds\": 1800,\n" +
+        "    \"duration_factor\": 1,\n" +
+        "    \"premium_cost_exponent\": 0.44,\n" +
+        "    \"prerequisite_option_ids\": [\n" +
+        "      3\n" +
+        "    ],\n" +
+        "    \"premium_boost\": {\n" +
+        "      \"feature\": \"ScavengingSquadLoot\",\n" +
+        "      \"enabled\": true,\n" +
+        "      \"loot_factor\": 1.2,\n" +
+        "      \"cost_exponent\": 0.44\n" +
+        "    }\n" +
+        "  }\n" +
+        "}");
+
+
+    let units = {
+        'sword': {'haul': 15, 'type': 'def'},
+        'spear': {'haul': 25, 'type': 'def'},
+        'axe': {'haul': 10, 'type': 'off'},
+        'archer': {'haul': 10, 'type': 'def'}
+    };
+
+    let tableObject = $("#results table tbody");
+
+    let cookieToStore = {};
+
+    function getPersistence()
+    {
+        let cookieRestore = window.localStorage.getItem('formPersist')
+        if (cookieRestore===null)
+        {
+            cookieToStore = {};
+        }
+        else {
+            // There was a cookie, restore it
+            cookieToStore = JSON.parse(cookieRestore);
+            $("#sword").val(cookieToStore.sword);
+            $("#axe").val(cookieToStore.axe);
+            $("#spear").val(cookieToStore.spear);
+            $("#archer").val(cookieToStore.archer);
+            $("#time").val(cookieToStore.runtime);
+        }
+    }
+
+    $(document).ready(function() {
+        getPersistence();
+        // Handle the click on the calculate button
+        $("#calculate").click(function(e) {
+            e.preventDefault();
+            let results = {};
+
+            // Calculate maximum haul capacity for available troops
+            let haul = 0;
+            for (let unit in units) {
+                haul += parseInt($("#" + unit).val()) * units[unit].haul;
+            }
+
+            // Get the max runtime
+            let runtime = parseInt($("#time").val()) * 60 * 60;
+            cookieToStore['runtime'] = parseInt($("#time").val());
+
+            // Loop over all adventures
+            for (let adventureID in scavangeInfo) {
+                // Calculate max loot within time period
+                let loot = Math.pow(Math.pow(((runtime / scavangeInfo[adventureID].duration_factor) - scavangeInfo[adventureID].duration_initial_seconds), (1 / scavangeInfo[adventureID].duration_exponent)) / 100, 1 / 2) / scavangeInfo[adventureID].loot_factor;
+
+                // Loop over all unit types
+                for (let unit in units) {
+                    let needed = Math.round(loot / units[unit].haul);
+                    let aantaldajehebt = parseInt($("#" + unit).val());
+                    cookieToStore[unit] = aantaldajehebt;
+                    if (needed > aantaldajehebt) {
+                        if (results[scavangeInfo[adventureID].name] === undefined) results[scavangeInfo[adventureID].name] = {};
+                        results[scavangeInfo[adventureID].name][unit] = aantaldajehebt;
+                        loot -= aantaldajehebt * units[unit].haul;
+                    } else {
+                        if (results[scavangeInfo[adventureID].name] === undefined) results[scavangeInfo[adventureID].name] = {};
+                        results[scavangeInfo[adventureID].name][unit] = needed;
+                        break
+                    }
+                }
+            }
+
+            // Empty the table
+            tableObject.children().remove();
+            for (let result in results)
+            {
+                tableObject.append("<tr><th scope='row'>" + result + "</th><td>" + (results[result].spear || '0') + "</td><td>" + (results[result].sword||0) + "</td><td>" + (results[result].axe||0) + "</td><td>" + (results[result].archer||0) + "</td></tr>")
+            }
+            window.localStorage.setItem('formPersist', JSON.stringify(cookieToStore));
+        });
+
+        $("#navhome").click(function() {
+            $("#home").css('display', 'block');
+            $("#about").css('display','none');
+            $(this).addClass("active");
+            $("#navabout").removeClass("active");
+        });
+
+        $("#navabout").click(function() {
+            $("#about").css('display', 'block');
+            $("#home").css('display','none');
+            $(this).addClass("active");
+            $("#navhome").removeClass("active");
+        });
+    });
+
+</script>
+</body>
+</html>
