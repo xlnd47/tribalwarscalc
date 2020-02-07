@@ -21,9 +21,6 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li id=navabout class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -69,12 +66,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
-    <div class="jumbotron" id="about" style="display:none;">
-        <h1 class="display-4">Tribal Wars Scavange Calculator!</h1>
-        <p class="lead">This calculator was developed by &copy; Jorn Schampheleer</p>
-        <hr class="my-4">
-        <p>Based on the script of Warre in the fora.</p>
     </div>
 </div>
 
@@ -268,13 +259,10 @@
 
         $("#navhome").click(function() {
             $("#home").css('display', 'block');
-            $("#about").css('display','none');
             $(this).addClass("active");
-            $("#navabout").removeClass("active");
         });
 
         $("#navabout").click(function() {
-            $("#about").css('display', 'block');
             $("#home").css('display','none');
             $(this).addClass("active");
             $("#navhome").removeClass("active");
