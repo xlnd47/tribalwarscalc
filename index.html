@@ -45,9 +45,9 @@
                 <input type="number" class="form-control" id="archer" placeholder="Archers">
             </div>
             <div class="form-group">
-                <label for="time">Time</label>
-                <input type="number" class="form-control" id="time" aria-describedby="timeHelp" placeholder="Time">
-                <small id="timeHelp" class="form-text text-muted">Enter the time you would like your troops to be gone, in hours</small>
+                <label for="time">Tijd</label>
+                <input type="time" class="form-control" id="time" aria-describedby="timeHelp" placeholder="Time">
+                <small id="timeHelp" class="form-text text-muted">Geef het uur in dat de troepen terug moeten zijn</small>
             </div>
             <button type="submit" id="calculate" class="btn btn-primary">Submit</button>
         </form>
@@ -55,11 +55,11 @@
             <table class="table" style="margin-top: 2rem;">
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Adventure</th>
-                    <th scope="col">Spearman</th>
-                    <th scope="col">Swordsmen</th>
-                    <th scope="col">Axemen</th>
-                    <th scope="col">Archers</th>
+                    <th scope="col">Avontuur</th>
+                    <th scope="col">Speervechter</th>
+                    <th scope="col">Zwaardvechter</th>
+                    <th scope="col">Bijlman</th>
+                    <th scope="col">Boogschutter</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -209,10 +209,31 @@
         }
     }
 
+    function allesNul(){
+        if ($("#spear").val().length == 0) {
+            $("#spear").val("0");
+        };
+        if ($("#sword").val().length == 0) {
+            $("#sword").val("0");
+        };
+        if ($("#axe").val().length == 0) {
+            $("#axe").val("0");
+        };
+        if ($("#archer").val().length == 0) {
+            $("#archer").val("0");
+        };
+    }
+
     $(document).ready(function() {
         getPersistence();
         // Handle the click on the calculate button
+
+
+
         $("#calculate").click(function(e) {
+
+            allesNul();
+
             e.preventDefault();
             let results = {};
 
