@@ -33,7 +33,7 @@
         <!-- <hr class="my-4"> -->
         <form>
             <div class="form-group">
-                <label for="Wereldsnelheid">Tijd</label>
+                <label for="Wereldsnelheid">Wereldsnelheid (nog in maak)</label>
                 <input type="number" class="form-control" id="speed" placeholder="Wereldsnelheid">
                 <br>
                 <label for="spear">Speervechter</label>
@@ -255,7 +255,7 @@
             // Loop over all adventures
             for (let adventureID in scavangeInfo) {
                 // Calculate max loot within time period
-                let loot = Math.pow(Math.pow(((runtime / scavangeInfo[adventureID].duration_factor) - scavangeInfo[adventureID].duration_initial_seconds), (1 / scavangeInfo[adventureID].duration_exponent)) / 100, 1 / 2) / worldspeed;
+                let loot = Math.pow(Math.pow(((runtime / scavangeInfo[adventureID].duration_factor) - scavangeInfo[adventureID].duration_initial_seconds), (1 / scavangeInfo[adventureID].duration_exponent)) / 100, 1 / 2) / scavangeInfo[adventureID].loot_factor;
 
                 // Loop over all unit types
                 for (let unit in units) {
