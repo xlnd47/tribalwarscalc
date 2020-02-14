@@ -33,16 +33,17 @@
         <!-- <hr class="my-4"> -->
         <form>
             <div class="form-group">
-                <label for="time">Tijd</label>
+                <label for="Wereldsnelheid">Tijd</label>
+                <input type="number" class="form-control" id="speed" placeholder="Wereldsnelheid">
                 <br>
                 <label for="spear">Speervechter</label>
-                <input type="number" class="form-control" id="spear" placeholder="Spearmen">
+                <input type="number" class="form-control" id="spear" placeholder="Speermannen">
                 <label for="sword">Zwaardvechter</label>
-                <input type="number" class="form-control" id="sword" placeholder="Swordsmen">
+                <input type="number" class="form-control" id="sword" placeholder="Zwaardmannen">
                 <label for="axe">Bijlman</label>
-                <input type="number" class="form-control" id="axe" placeholder="Axemen">
+                <input type="number" class="form-control" id="axe" placeholder="Bijlmannen">
                 <label for="archer">Boogschutter</label>
-                <input type="number" class="form-control" id="archer" placeholder="Archers">
+                <input type="number" class="form-control" id="archer" placeholder="Boogschutters">
             </div>
             <div class="form-group">
                 <label for="time">Tijd</label>
@@ -81,7 +82,7 @@
 </script>
 
 <script type="text/javascript">
-    let worldspeed = 1;
+    var worldspeed = 1;
 
     let scavangeInfo = {
           "1": {
@@ -102,7 +103,7 @@
             "premium_boost": {
               "feature": "ScavengingSquadLoot",
               "enabled": true,
-              "loot_factor": 1.2,
+              "loot_factor": worldspeed,
               "cost_exponent": 0.44
             }
           },
@@ -126,7 +127,7 @@
             "premium_boost": {
               "feature": "ScavengingSquadLoot",
               "enabled": true,
-              "loot_factor": 1.2,
+              "loot_factor": worldspeed,
               "cost_exponent": 0.44
             }
           },
@@ -150,7 +151,7 @@
             "premium_boost": {
               "feature": "ScavengingSquadLoot",
               "enabled": true,
-              "loot_factor": 1.2,
+              "loot_factor": worldspeed,
               "cost_exponent": 0.44
             }
           },
@@ -174,7 +175,7 @@
             "premium_boost": {
               "feature": "ScavengingSquadLoot",
               "enabled": true,
-              "loot_factor": 1.2,
+              "loot_factor": worldspeed,
               "cost_exponent": 0.44
             }
           }
@@ -211,6 +212,9 @@
     }
 
     function allesNul(){
+        if ($("#speed").val().length == 0) {
+            $("#speed").val("0");
+        };
         if ($("#spear").val().length == 0) {
             $("#spear").val("0");
         };
@@ -228,13 +232,13 @@
     $(document).ready(function() {
         getPersistence();
         // Handle the click on the calculate button
-
+        
 
 
         $("#calculate").click(function(e) {
 
             allesNul();
-
+            worldspeed = parseInt($("#speed").val());
             e.preventDefault();
             let results = {};
 
