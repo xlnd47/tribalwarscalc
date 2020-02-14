@@ -83,102 +83,102 @@
 <script type="text/javascript">
     let worldspeed = 1;
 
-    let scavangeInfo = JSON.parse("{\n" +
-        "  \"1\": {\n" +
-        "    \"id\": 1,\n" +
-        "    \"name\": \"Flegmatische  Fielt\",\n" +
-        "    \"loot_factor\": 0.1,\n" +
-        "    \"unlock_cost\": {\n" +
-        "      \"wood\": 25,\n" +
-        "      \"stone\": 30,\n" +
-        "      \"iron\": 25\n" +
-        "    },\n" +
-        "    \"unlock_duration_seconds\": 30,\n" +
-        "    \"duration_exponent\": 0.45,\n" +
-        "    \"duration_initial_seconds\": 1800,\n" +
-        "    \"duration_factor\": 1,\n" +
-        "    \"premium_cost_exponent\": 0.44,\n" +
-        "    \"prerequisite_option_ids\": [],\n" +
-        "    \"premium_boost\": {\n" +
-        "      \"feature\": \"ScavengingSquadLoot\",\n" +
-        "      \"enabled\": true,\n" +
-        "      \"loot_factor\": 1.2,\n" +
-        "      \"cost_exponent\": 0.44\n" +
-        "    }\n" +
-        "  },\n" +
-        "  \"2\": {\n" +
-        "    \"id\": 2,\n" +
-        "    \"name\": \"Bescheiden Bandieten\",\n" +
-        "    \"loot_factor\": 0.25,\n" +
-        "    \"unlock_cost\": {\n" +
-        "      \"wood\": 250,\n" +
-        "      \"stone\": 300,\n" +
-        "      \"iron\": 250\n" +
-        "    },\n" +
-        "    \"unlock_duration_seconds\": 3600,\n" +
-        "    \"duration_exponent\": 0.45,\n" +
-        "    \"duration_initial_seconds\": 1800,\n" +
-        "    \"duration_factor\": 1,\n" +
-        "    \"premium_cost_exponent\": 0.44,\n" +
-        "    \"prerequisite_option_ids\": [\n" +
-        "      1\n" +
-        "    ],\n" +
-        "    \"premium_boost\": {\n" +
-        "      \"feature\": \"ScavengingSquadLoot\",\n" +
-        "      \"enabled\": true,\n" +
-        "      \"loot_factor\": 1.2,\n" +
-        "      \"cost_exponent\": 0.44\n" +
-        "    }\n" +
-        "  },\n" +
-        "  \"3\": {\n" +
-        "    \"id\": 3,\n" +
-        "    \"name\": \"Slimme Speurders\",\n" +
-        "    \"loot_factor\": 0.5,\n" +
-        "    \"unlock_cost\": {\n" +
-        "      \"wood\": 1000,\n" +
-        "      \"stone\": 1200,\n" +
-        "      \"iron\": 1000\n" +
-        "    },\n" +
-        "    \"unlock_duration_seconds\": 10800,\n" +
-        "    \"duration_exponent\": 0.45,\n" +
-        "    \"duration_initial_seconds\": 1800,\n" +
-        "    \"duration_factor\": 1,\n" +
-        "    \"premium_cost_exponent\": 0.44,\n" +
-        "    \"prerequisite_option_ids\": [\n" +
-        "      2\n" +
-        "    ],\n" +
-        "    \"premium_boost\": {\n" +
-        "      \"feature\": \"ScavengingSquadLoot\",\n" +
-        "      \"enabled\": true,\n" +
-        "      \"loot_factor\": 1.2,\n" +
-        "      \"cost_exponent\": 0.44\n" +
-        "    }\n" +
-        "  },\n" +
-        "  \"4\": {\n" +
-        "    \"id\": 4,\n" +
-        "    \"name\": \"Reuze Rovers\",\n" +
-        "    \"loot_factor\": 0.75,\n" +
-        "    \"unlock_cost\": {\n" +
-        "      \"wood\": 10000,\n" +
-        "      \"stone\": 12000,\n" +
-        "      \"iron\": 10000\n" +
-        "    },\n" +
-        "    \"unlock_duration_seconds\": 21600,\n" +
-        "    \"duration_exponent\": 0.45,\n" +
-        "    \"duration_initial_seconds\": 1800,\n" +
-        "    \"duration_factor\": 1,\n" +
-        "    \"premium_cost_exponent\": 0.44,\n" +
-        "    \"prerequisite_option_ids\": [\n" +
-        "      3\n" +
-        "    ],\n" +
-        "    \"premium_boost\": {\n" +
-        "      \"feature\": \"ScavengingSquadLoot\",\n" +
-        "      \"enabled\": true,\n" +
-        "      \"loot_factor\": 1.2,\n" +
-        "      \"cost_exponent\": 0.44\n" +
-        "    }\n" +
-        "  }\n" +
-        "}");
+    let scavangeInfo = JSON.parse('{
+  "1": {
+    "id": 1,
+    "name": "Flegmatische  Fielt",
+    "loot_factor": 0.1,
+    "unlock_cost": {
+      "wood": 25,
+      "stone": 30,
+      "iron": 25
+    },
+    "unlock_duration_seconds": 30,
+    "duration_exponent": 0.45,
+    "duration_initial_seconds": 1800,
+    "duration_factor": 1,
+    "premium_cost_exponent": 0.44,
+    "prerequisite_option_ids": [],
+    "premium_boost": {
+      "feature": "ScavengingSquadLoot",
+      "enabled": true,
+      "loot_factor": 1.2,
+      "cost_exponent": 0.44
+    }
+  },
+  "2": {
+    "id": 2,
+    "name": "Bescheiden Bandieten",
+    "loot_factor": 0.25,
+    "unlock_cost": {
+      "wood": 250,
+      "stone": 300,
+      "iron": 250
+    },
+    "unlock_duration_seconds": 3600,
+    "duration_exponent": 0.45,
+    "duration_initial_seconds": 1800,
+    "duration_factor": 1,
+    "premium_cost_exponent": 0.44,
+    "prerequisite_option_ids": [
+      1
+    ],
+    "premium_boost": {
+      "feature": "ScavengingSquadLoot",
+      "enabled": true,
+      "loot_factor": 1.2,
+      "cost_exponent": 0.44
+    }
+  },
+  "3": {
+    "id": 3,
+    "name": "Slimme Speurders",
+    "loot_factor": 0.5,
+    "unlock_cost": {
+      "wood": 1000,
+      "stone": 1200,
+      "iron": 1000
+    },
+    "unlock_duration_seconds": 10800,
+    "duration_exponent": 0.45,
+    "duration_initial_seconds": 1800,
+    "duration_factor": 1,
+    "premium_cost_exponent": 0.44,
+    "prerequisite_option_ids": [
+      2
+    ],
+    "premium_boost": {
+      "feature": "ScavengingSquadLoot",
+      "enabled": true,
+      "loot_factor": 1.2,
+      "cost_exponent": 0.44
+    }
+  },
+  "4": {
+    "id": 4,
+    "name": "Reuze Rovers",
+    "loot_factor": 0.75,
+    "unlock_cost": {
+      "wood": 10000,
+      "stone": 12000,
+      "iron": 10000
+    },
+    "unlock_duration_seconds": 21600,
+    "duration_exponent": 0.45,
+    "duration_initial_seconds": 1800,
+    "duration_factor": 1,
+    "premium_cost_exponent": 0.44,
+    "prerequisite_option_ids": [
+      3
+    ],
+    "premium_boost": {
+      "feature": "ScavengingSquadLoot",
+      "enabled": true,
+      "loot_factor": 1.2,
+      "cost_exponent": 0.44
+    }
+  }
+}');
 
 
     let units = {
