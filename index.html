@@ -255,7 +255,7 @@
             // Loop over all adventures
             for (let adventureID in scavangeInfo) {
                 // Calculate max loot within time period
-                let loot = Math.pow(Math.pow(((runtime / scavangeInfo[adventureID].duration_factor) - scavangeInfo[adventureID].duration_initial_seconds), (1 / scavangeInfo[adventureID].duration_exponent)) / 100, 1 / 2) / scavangeInfo[adventureID].loot_factor;
+                let loot = Math.pow(Math.pow(((runtime / scavangeInfo[adventureID].duration_factor) - scavangeInfo[adventureID].duration_initial_seconds), (1 / scavangeInfo[adventureID].duration_exponent)) / 100, 1 / 2) / worldspeed;
 
                 // Loop over all unit types
                 for (let unit in units) {
